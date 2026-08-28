@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "content": "我创建了网站！",
+    "date": "2026-04-06T10:30:00Z",
+    "images": [
+      "/images/diary/diary4.6.jpg",
+      "/images/diary/1.webp"
+    ]
+  },
+  {
+    "id": 2,
+    "content": "O加D蕴含E，随之有R。",
+    "date": "2026-08-28T14:07:26.560Z",
+    "tags": [],
+    "images": []
+  },
+  {
+    "id": 3,
+    "content": "你要爱就要像一个痴情的恋人那样去爱，像一个忘死的梦者那样去爱，视他人之疑目如盏盏鬼火，大胆去走你的夜路。",
+    "date": "2026-06-12T16:58:40.356Z",
+    "tags": [
+      "阅读，日常"
+    ],
+    "images": [
+      "/images/diary/dfaf39b3a8722ee1.jpg"
+    ]
+  }
+]

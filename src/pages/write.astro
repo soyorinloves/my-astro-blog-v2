@@ -1,0 +1,9 @@
+---
+import WriteApp from "@components/editor/WriteApp.svelte";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import "../styles/editor.css";
+---
+
+<MainGridLayout title="写文章">
+	<WriteApp client:only="svelte" />
+</MainGridLayout>

@@ -1,0 +1,88 @@
+/* 在线编辑器专用样式（对齐站点设计 token，纯原生 CSS，不依赖 @apply） */
+
+.editor-input {
+	width: 100%;
+	border-radius: 0.75rem;
+	border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
+	background: var(--card-bg);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+	transition: border-color 150ms, box-shadow 150ms;
+}
+
+.editor-input:focus {
+	outline: none;
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 18%, transparent);
+}
+
+.editor-textarea {
+	width: 100%;
+	border-radius: 0.75rem;
+	border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
+	background: var(--card-bg);
+	padding: 0.75rem;
+	font-size: 0.875rem;
+	line-height: 1.6;
+	transition: border-color 150ms, box-shadow 150ms;
+}
+
+.editor-textarea:focus {
+	outline: none;
+	border-color: var(--primary);
+	box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 18%, transparent);
+}
+
+.editor-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--radius-large);
+	padding: 0.5rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	transition: background-color 150ms, color 150ms;
+}
+
+.editor-btn-primary {
+	border-radius: var(--radius-large);
+	background: var(--btn-regular-bg);
+	color: var(--btn-content);
+}
+
+.editor-btn-primary:hover {
+	background: var(--btn-regular-bg-hover);
+}
+
+.editor-btn-ghost {
+	border-radius: var(--radius-large);
+	background: transparent;
+	color: color-mix(in oklch, var(--primary) 60%, oklch(0.5 0 0));
+}
+
+.editor-btn-ghost:hover {
+	background: color-mix(in oklch, var(--primary) 10%, transparent);
+}
+
+.editor-btn-danger {
+	border-radius: var(--radius-large);
+	background: transparent;
+	color: oklch(0.6 0.2 25);
+	border: 1px solid color-mix(in oklch, oklch(0.6 0.2 25) 40%, transparent);
+}
+
+.editor-btn-danger:hover {
+	background: color-mix(in oklch, oklch(0.6 0.2 25) 12%, transparent);
+}
+
+.editor-label {
+	display: block;
+	font-size: 0.875rem;
+}
+
+.editor-check {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.25rem;
+	accent-color: var(--primary);
+}

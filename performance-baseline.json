@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "createdAt": "2026-03-20T00:00:00.000Z",
+  "baseline": {
+    "homepage": {
+      "url": "http://localhost:4321/",
+      "metrics": {
+        "performance": 0.85,
+        "first-contentful-paint": 1800,
+        "largest-contentful-paint": 3500,
+        "cumulative-layout-shift": 0.05,
+        "total-blocking-time": 300,
+        "speed-index": 3200,
+        "interactive": 4500,
+        "accessibility": 0.9,
+        "best-practices": 0.9,
+        "seo": 0.9
+      },
+      "resourceSizes": {
+        "totalJsKB": 150,
+        "totalCssKB": 30,
+        "htmlKB": 50,
+        "totalKB": 230
+      }
+    },
+    "about": {
+      "url": "http://localhost:4321/about/",
+      "metrics": {
+        "performance": 0.85,
+        "first-contentful-paint": 1600,
+        "largest-contentful-paint": 3200,
+        "cumulative-layout-shift": 0.04,
+        "total-blocking-time": 250,
+        "speed-index": 2800,
+        "interactive": 4000,
+        "accessibility": 0.9,
+        "best-practices": 0.9,
+        "seo": 0.9
+      }
+    },
+    "anime": {
+      "url": "http://localhost:4321/anime/",
+      "metrics": {
+        "performance": 0.85,
+        "first-contentful-paint": 1900,
+        "largest-contentful-paint": 3800,
+        "cumulative-layout-shift": 0.06,
+        "total-blocking-time": 350,
+        "speed-index": 3500,
+        "interactive": 4800,
+        "accessibility": 0.9,
+        "best-practices": 0.9,
+        "seo": 0.9
+      }
+    }
+  },
+  "thresholds": {
+    "performance": 0.85,
+    "first-contentful-paint": 2000,
+    "largest-contentful-paint": 4000,
+    "cumulative-layout-shift": 0.1,
+    "total-blocking-time": 500,
+    "speed-index": 4000,
+    "interactive": 5000,
+    "regressionPercent": 10
+  }
+}
