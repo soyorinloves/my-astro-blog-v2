@@ -166,5 +166,19 @@
     },
     "projects": [],
     "color": "#E34F26"
+  },
+  {
+    "id": "1788022301320",
+    "name": "Markdown",
+    "description": "轻量级标记语言，用于编写文档、博客内容、README。",
+    "icon": "logos:markdown",
+    "category": "tools",
+    "level": "beginner",
+    "experience": {
+      "years": 0,
+      "months": 6
+    },
+    "projects": [],
+    "color": "#000000"
   }
 ]
