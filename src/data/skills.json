@@ -110,5 +110,19 @@
     },
     "projects": [],
     "color": "#3178C6"
+  },
+  {
+    "id": "1788022067440",
+    "name": "Svelte",
+    "description": "编译型前端框架，无运行时开销，轻量化组件开发。",
+    "icon": "logos:svelte-icon",
+    "category": "frontend",
+    "level": "tools",
+    "experience": {
+      "years": 0,
+      "months": 6
+    },
+    "projects": [],
+    "color": "#FF3E00"
   }
 ]
