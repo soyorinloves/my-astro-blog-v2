@@ -58,7 +58,7 @@
   {
     "id": "photoshop",
     "name": "Adobe Photoshop",
-    "description": "熟练使用PS进行图像编辑、修图、贴图绘制与AI绘图后期处理。",
+    "description": "使用 Photoshop 完成图像修调、贴图绘制、AI 生成图像后期优化等工作。",
     "icon": "logos:photoshop",
     "category": "tools",
     "level": "intermediate",
