@@ -103,7 +103,7 @@
     "description": "JavaScript 的静态类型超集，提升代码可维护性。",
     "icon": "logos:typescript-icon",
     "category": "frontend",
-    "level": "tools",
+    "level": "beginner",
     "experience": {
       "years": 0,
       "months": 6
