@@ -124,5 +124,19 @@
     },
     "projects": [],
     "color": "#FF3E00"
+  },
+  {
+    "id": "1788022123986",
+    "name": "CSS",
+    "description": "层叠样式表，负责网页布局、美化、视觉样式开发。",
+    "icon": "logos:css-3",
+    "category": "frontend",
+    "level": "tools",
+    "experience": {
+      "years": 0,
+      "months": 6
+    },
+    "projects": [],
+    "color": "#1572B6"
   }
 ]
