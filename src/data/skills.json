@@ -44,7 +44,7 @@
   {
     "id": "3dsmax",
     "name": "Autodesk 3ds Max",
-    "description": "掌握3ds Max基础建模与贴图绘制，可制作简单3D小模型",
+    "description": "熟练运用 3ds Max 完成基础建模、材质贴图工作，可制作简易三维模型资产。",
     "icon": "logos:3dsmax",
     "category": "tools",
     "level": "intermediate",
