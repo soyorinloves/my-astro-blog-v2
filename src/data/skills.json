@@ -16,7 +16,7 @@
   {
     "id": "Stable Diffusion",
     "name": "Stable Diffusion",
-    "description": "掌握基于 ComfyUI 的 Stable Diffusion 全流程实操，可独立完成出图与 workflow 设计。",
+    "description": "精通 ComfyUI 可视化工作流搭建，可独立完成 AI 图像生成、节点流水线定制与后期调优。",
     "icon": "simple-icons:stablediffusion",
     "category": "aigc",
     "level": "advanced",
