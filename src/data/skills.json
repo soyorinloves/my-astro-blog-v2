@@ -145,7 +145,7 @@
     "description": "网页交互脚本语言，实现客户端动态逻辑。",
     "icon": "logos:javascript",
     "category": "frontend",
-    "level": "tools",
+    "level": "beginner",
     "experience": {
       "years": 0,
       "months": 6
