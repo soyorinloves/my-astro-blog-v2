@@ -150,9 +150,16 @@
 		message = "加载失败：找不到该文章";
 	}
 
+	// 把 "2026-8-30" 这种少前导零的日期补成 "2026-08-30"，避免 z.date() 解析失败
+	function normalizeDate(s: string): string {
+		const m = s.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+		if (m) return `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+		return s.trim();
+	}
+
 	function buildFrontmatter(): Frontmatter {
 		const data: Frontmatter = { title };
-		if (published) data.published = published;
+		if (published) data.published = normalizeDate(published);
 		else data.published = new Date().toISOString().slice(0, 10);
 		data.description = summary;
 		if (image) data.image = image;

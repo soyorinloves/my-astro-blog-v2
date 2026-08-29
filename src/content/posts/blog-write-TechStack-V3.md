@@ -1,6 +1,6 @@
 ---
 title: 技术栈-我给博客做了个写作台，现在一个后台管住整站v3
-published: 2026-8-30
+published: 2026-08-30
 description: 改进了 `/write` 统一在线后台，把原先硬编码在 TS 文件里的 9 项站点内容数据迁移至 JSON 文件，搭配板块隐藏开关与 Vercel 无服务器接口，实现无需修改本地代码即可在线管理全站内容。
 image: /images/posts/blog-write-TechStack-V3/14ea0615e8d45179.jpg
 tags: ["技术", "前后端联调", "功能设计", "安全设计", "开发记录"]
