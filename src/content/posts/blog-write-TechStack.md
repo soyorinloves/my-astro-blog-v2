@@ -13,7 +13,7 @@ licenseName: CC BY-SA 4.0
 ---
 我的博客是个纯静态站：Astro + Svelte，`output: "static"`，跑在 Vercel 上。发一篇文章的流程是——本地开编辑器写 Markdown，手动改 frontmatter，`git push`，然后等 Vercel 检测到变更重新构建。
 
-直接在文件里写的话，每写一次就要 pull 一次、改一次代码，太折腾了。我就琢磨：能不能在网页上直接写？写完点个发布，文章自己上线。
+直接在文件里写的话，每写一次就要 push 一次、改一次代码，太麻烦了。我就琢磨：能不能在网页上直接写？写完点个发布，文章自己上线。
 
 于是博客多了个 `/write` 页面。文章、日记在线增删改，图片直接传，草稿自动存。这篇把它从头拆一遍：技术栈、架构、安全上的取舍、部署要配什么，还有踩过的坑。
 
@@ -209,8 +209,8 @@ Vercel 上 5 个环境变量：
 | `GH_PAT` | 细粒度 PAT，Contents: Read & write，限本仓库 | GitHub 手动创建 |
 | `EDITOR_PASSWORD_HASH` | 登录密码 hash | `pnpm hash-password "密码"` |
 | `SESSION_SECRET` | 会话签名密钥 | `openssl rand -hex 32` |
-| `GITHUB_OWNER` | `soyorinloves` | — |
-| `GITHUB_REPO` | `my-astro-blog` | — |
+| `GITHUB_OWNER` | `GitHub Username` | — |
+| `GITHUB_REPO` | `项目名字` | — |
 
 博客本体还是纯静态（`output: "static"`），Vercel 原生支持根级 `api/` 目录，不用装 `@astrojs/vercel`。push 到 main 后 Vercel 自动构建，不用手动触发。
 
@@ -233,10 +233,10 @@ Vercel 上 5 个环境变量：
 > [!TIP]
 > **本地 dev 起不来 `/api/*`**：`pnpm dev` 起不来 `/api/*`，那是 Vercel 专属的，登录会报错，属正常，得用 `vercel dev` 才能完整联调。这个我排查了好一阵才反应过来。
 
-## 说点实话
+## 注意！！
 
 > [!CAUTION]
-> 这套登录方案本质是"一扇上锁的门，防路人误入"，不承诺抵抗定向攻击。它是单人博客的规模，不是银行金库。PAT 最长一年有效，到期得重新生成，别等登录不上了才想起来。
+> 这套登录方案本质是"一扇上锁的门，防路人误入"，不承诺抵抗定向攻击。它是单人博客的规模，不是银行金库。
 
 安全措施列个表，散着写啰嗦：
 
@@ -272,10 +272,8 @@ Vercel 上 5 个环境变量：
 
 这套做法不一定适合所有人——多作者协作或者内容敏感度高，就得考虑 OAuth 或者上独立后端了。但如果你也是一个人折腾静态博客，想让发文章稍微体面点，这个思路可以参考。
 
-
 ![微信图片_20260829102209_887_1.png](/images/posts/blog-write-TechStack/95ba946b5bde6340.png)
 
-
-仓库开源在这，感兴趣可以点开看看：
+仓库开源在这，感兴趣可以点开看看，有用欢迎 Star ⭐：
 
 ::github{repo="soyorinloves/my-astro-blog"}
