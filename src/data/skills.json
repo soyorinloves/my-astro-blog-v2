@@ -58,17 +58,15 @@
   {
     "id": "photoshop",
     "name": "Adobe Photoshop",
-    "description": "熟练使用PS进行图像编辑、修图、贴图绘制与AI绘图后期处理",
+    "description": "熟练使用PS进行图像编辑、修图、贴图绘制与AI绘图后期处理。",
     "icon": "logos:photoshop-icon",
     "category": "tools",
     "level": "beginner",
     "experience": {
       "years": 1,
-      "months": 0
+      "months": 6
     },
-    "projects": [
-      ""
-    ],
+    "projects": [],
     "color": "#318CE7"
   },
   {
