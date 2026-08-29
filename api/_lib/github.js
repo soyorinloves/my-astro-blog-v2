@@ -79,3 +79,18 @@ async function listDir(token, path) {
 export async function listPosts(token) {
 	return listDir(token, "src/content/posts");
 }
+
+// 列出目录直接子项（文件 + 子目录），供相册列表等使用
+export async function listDirEntries(token, path) {
+	const res = await fetch(
+		`${BASE}/${encodeURIComponent(path)}`,
+		{ headers: headers(token) },
+	);
+	if (!res.ok) throw new Error(`list failed: ${res.status}`);
+	const data = await res.json();
+	return (Array.isArray(data) ? data : []).map((f) => ({
+		name: f.name,
+		path: f.path,
+		type: f.type, // "file" | "dir"
+	}));
+}

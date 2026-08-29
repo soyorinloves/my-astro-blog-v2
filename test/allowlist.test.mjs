@@ -24,3 +24,13 @@ test("拒绝 config/astro/workflow", () => {
 test("拒绝路径穿越", () => {
 	assert.equal(isAllowed("src/content/posts/../../config.ts"), false);
 });
+
+test("允许新增数据文件与 spec", () => {
+	assert.equal(isAllowed("src/data/friends.json"), true);
+	assert.equal(isAllowed("src/data/projects.json"), true);
+	assert.equal(isAllowed("src/data/skills.json"), true);
+	assert.equal(isAllowed("src/data/timeline.json"), true);
+	assert.equal(isAllowed("src/data/devices.json"), true);
+	assert.equal(isAllowed("src/content/spec/about.md"), true);
+	assert.equal(isAllowed("src/config.ts"), false);
+});

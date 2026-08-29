@@ -2,6 +2,12 @@
 const ALLOWED = [
 	{ prefix: "src/content/posts/" },
 	{ exact: "src/data/diary.json" },
+	{ exact: "src/data/friends.json" },
+	{ exact: "src/data/projects.json" },
+	{ exact: "src/data/skills.json" },
+	{ exact: "src/data/timeline.json" },
+	{ exact: "src/data/devices.json" },
+	{ prefix: "src/content/spec/" },
 	{ prefix: "public/images/" },
 ];
 
