@@ -7,5 +7,5 @@
   "skills": true,
   "timeline": true,
   "albums": true,
-  "devices": true
+  "devices": false
 }
