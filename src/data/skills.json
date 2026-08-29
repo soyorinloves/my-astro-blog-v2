@@ -31,9 +31,9 @@
     "id": "maya",
     "name": "Autodesk Maya",
     "description": "入门级使用Maya进行基础3D建模、贴图绘制，可完成简单小模型制作。",
-    "icon": "logos:maya-icon",
+    "icon": "logos:maya",
     "category": "tools",
-    "level": "beginner",
+    "level": "intermediate",
     "experience": {
       "years": 0,
       "months": 7
