@@ -1,5 +1,5 @@
-// Project data configuration file
-// Used to manage data for the project display page
+// Project data configuration file（数据本体在 projects.json，便于在线编辑）
+import projectsJson from "./projects.json";
 
 export interface Project {
 	id: string;
@@ -19,9 +19,7 @@ export interface Project {
 	showImage?: boolean;
 }
 
-export const projectsData: Project[] = [
-
-];
+export const projectsData: Project[] = projectsJson as Project[];
 
 // Get project statistics
 export const getProjectStats = () => {
