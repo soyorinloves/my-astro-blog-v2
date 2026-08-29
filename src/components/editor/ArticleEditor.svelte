@@ -157,6 +157,15 @@
 		return s.trim();
 	}
 
+	// 校验日期格式，必须是 YYYY-MM-DD 或 YYYY-M-D（月日可缺前导零），且月日范围合法
+	function isValidDate(s: string): boolean {
+		const m = s.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+		if (!m) return false;
+		const mo = Number(m[2]);
+		const d = Number(m[3]);
+		return mo >= 1 && mo <= 12 && d >= 1 && d <= 31;
+	}
+
 	function buildFrontmatter(): Frontmatter {
 		const data: Frontmatter = { title };
 		if (published) data.published = normalizeDate(published);
@@ -212,6 +221,9 @@
 	async function publish() {
 		if (!title.trim()) return (message = "请填写标题");
 		if (!slug.trim()) return (message = "请填写 slug");
+		if (published.trim() && !isValidDate(published)) {
+			return (message = "日期格式错误，应为 YYYY-MM-DD（如 2026-08-30）");
+		}
 		saving = true;
 		message = "";
 		const path = `src/content/posts/${slug}.${ext}`;
