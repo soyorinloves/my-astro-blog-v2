@@ -43,18 +43,16 @@
   },
   {
     "id": "3dsmax",
-    "name": "Autodesk Maya",
+    "name": "Autodesk 3ds Max",
     "description": "掌握3ds Max基础建模与贴图绘制，可制作简单3D小模型",
     "icon": "logos:3dmax-icon",
     "category": "tools",
     "level": "beginner",
     "experience": {
-      "years": 0,
-      "months": 9
+      "years": 1,
+      "months": 2
     },
-    "projects": [
-      ""
-    ],
+    "projects": [],
     "color": "#4ECDC4"
   },
   {
