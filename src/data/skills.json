@@ -89,7 +89,7 @@
     "description": "现代化静态站点生成框架，用于构建高性能博客与内容网站。",
     "icon": "logos:astro",
     "category": "frontend",
-    "level": "tools",
+    "level": "beginner",
     "experience": {
       "years": 0,
       "months": 6
