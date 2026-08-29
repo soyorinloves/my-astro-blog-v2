@@ -159,7 +159,7 @@
     "description": "超文本标记语言，网页基础骨架结构搭建。",
     "icon": "logos:html-5",
     "category": "frontend",
-    "level": "tools",
+    "level": "beginner",
     "experience": {
       "years": 0,
       "months": 6
