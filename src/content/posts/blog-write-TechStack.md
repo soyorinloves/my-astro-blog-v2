@@ -1,7 +1,9 @@
 ---
 title: 技术栈-给自己的博客加个在线写作台
 published: 2026-08-29
-tags: ["技术，设计，全栈"]
+description: 基于 Astro+Svelte 静态博客，利用 Vercel Serverless 代理 GitHub API，实现免本地 Git 推送的在线编辑器，详解架构、安全方案与开发记录。
+image: /images/posts/blog-write-TechStack/d51ec2419f831cd9.jpg
+tags: ["技术", "前后端联调", "功能设计", "安全设计", "开发记录"]
 category: 模块开发
 draft: false
 permalink: about-blog-write-TechStack
