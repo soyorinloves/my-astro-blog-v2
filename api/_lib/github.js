@@ -53,18 +53,29 @@ export async function deleteFile({ token, path, message, sha }) {
 	if (!res.ok) throw new Error(`delete failed: ${res.status}`);
 }
 
-export async function listPosts(token) {
+// 递归列出目录下所有 .md/.mdx 文章
+async function listDir(token, path) {
 	const res = await fetch(
-		`https://api.github.com/repos/${OWNER}/${REPO}/contents/src/content/posts`,
+		`${BASE}/${encodeURIComponent(path)}`,
 		{ headers: headers(token) },
 	);
 	if (!res.ok) throw new Error(`list failed: ${res.status}`);
 	const data = await res.json();
-	return (Array.isArray(data) ? data : [])
-		.filter((f) => f.type === "file" || f.type === "dir")
-		.map((f) => ({
-			id: f.name.replace(/\.mdx?$/, ""),
-			path: f.path,
-			title: f.name,
-		}));
+	if (!Array.isArray(data)) return [];
+	const out = [];
+	for (const f of data) {
+		if (f.type === "dir") {
+			out.push(...(await listDir(token, f.path)));
+		} else if (f.type === "file" && /\.mdx?$/.test(f.name)) {
+			const slug = f.path
+				.replace(/^src\/content\/posts\//, "")
+				.replace(/\.mdx?$/, "");
+			out.push({ id: slug, path: f.path, title: slug });
+		}
+	}
+	return out;
+}
+
+export async function listPosts(token) {
+	return listDir(token, "src/content/posts");
 }

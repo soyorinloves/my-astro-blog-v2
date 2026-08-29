@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { api } from "./lib/api";
+	import { api, type PostMeta } from "./lib/api";
 	import { parseFrontmatter, stringifyFrontmatter, type Frontmatter } from "./lib/frontmatter";
 	import { uploadImage } from "./lib/upload";
 	import MarkdownPreview from "./MarkdownPreview.svelte";
@@ -29,6 +29,10 @@
 	let advanced = false;
 	let showHelp = false;
 
+	// 历史文章列表
+	let posts: PostMeta[] = [];
+	let postsLoading = true;
+
 	// 高级字段
 	let permalink = "";
 	let alias = "";
@@ -49,7 +53,64 @@
 		} else {
 			restoreDraft();
 		}
+		loadPosts();
 	});
+
+	async function loadPosts() {
+		try {
+			posts = await api.listPosts();
+		} catch {
+			// 列表加载失败不阻塞写作
+		} finally {
+			postsLoading = false;
+		}
+	}
+
+	function editPost(post: PostMeta) {
+		load(post.id);
+	}
+
+	async function deletePost(post: PostMeta) {
+		if (!confirm(`确定删除文章「${post.id}」？此操作不可恢复。`)) return;
+		try {
+			const res = await api.read(post.path);
+			await api.remove({ path: post.path, message: `feat(blog): delete post "${post.id}"`, sha: res.sha });
+			posts = posts.filter((p) => p.id !== post.id);
+			message = "已删除 ✅";
+			if (slug === post.id) {
+				resetForm();
+			}
+		} catch (e) {
+			message = String(e);
+		}
+	}
+
+	function resetForm() {
+		title = "";
+		slug = "";
+		body = "";
+		summary = "";
+		tags = "";
+		category = "";
+		published = "";
+		isDraft = false;
+		pinned = false;
+		priority = "";
+		lang = "";
+		image = "";
+		comment = true;
+		permalink = "";
+		alias = "";
+		password = "";
+		passwordHint = "";
+		encrypted = false;
+		author = "";
+		licenseName = "";
+		ext = "md";
+		baseSha = undefined;
+		isEdit = false;
+		uploadedImages = {};
+	}
 
 	async function load(s: string) {
 		slug = s;
@@ -283,6 +344,7 @@
 
 <div class="space-y-4">
 	<div class="card-base p-5 space-y-3">
+		<h2 class="font-bold text-lg">{isEdit ? `编辑：${title || slug}` : "写文章"}</h2>
 		<input bind:value={title} class="editor-input text-xl font-bold" placeholder="标题" />
 		<div class="flex gap-2">
 			<input bind:value={slug} class="editor-input font-mono text-sm" placeholder="slug（如 my-first-post）" />
@@ -442,4 +504,25 @@
 			<MarkdownPreview {body} imageOverrides={uploadedImages} />
 		</div>
 	{/if}
+
+	<div class="card-base p-5 space-y-3">
+		<h2 class="font-bold text-lg">历史文章</h2>
+		{#if postsLoading}
+			<p class="text-black/50 dark:text-white/50">加载中…</p>
+		{:else if posts.length === 0}
+			<p class="text-black/50 dark:text-white/50">还没有文章</p>
+		{:else}
+			<div class="space-y-3">
+				{#each posts as post (post.id)}
+					<div class="card-base p-4">
+						<p class="font-medium">{post.id}</p>
+						<div class="flex gap-2 mt-2">
+							<button class="editor-btn editor-btn-ghost" on:click={() => editPost(post)}>编辑</button>
+							<button class="editor-btn editor-btn-danger" on:click={() => deletePost(post)}>删除</button>
+						</div>
+					</div>
+				{/each}
+			</div>
+		{/if}
+	</div>
 </div>
