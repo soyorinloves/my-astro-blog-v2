@@ -10,6 +10,7 @@
 	import TimelineEditor from "./TimelineEditor.svelte";
 	import DevicesEditor from "./DevicesEditor.svelte";
 	import AlbumsEditor from "./AlbumsEditor.svelte";
+	import FeatureFlagsEditor from "./FeatureFlagsEditor.svelte";
 
 	const tabs: { key: string; label: string; component: any }[] = [
 		{ key: "article", label: "文章", component: ArticleEditor },
@@ -21,6 +22,7 @@
 		{ key: "timeline", label: "时间线", component: TimelineEditor },
 		{ key: "devices", label: "设备", component: DevicesEditor },
 		{ key: "albums", label: "相册", component: AlbumsEditor },
+		{ key: "flags", label: "板块开关", component: FeatureFlagsEditor },
 	];
 
 	let authed = false;

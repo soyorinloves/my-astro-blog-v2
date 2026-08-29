@@ -7,6 +7,7 @@ const ALLOWED = [
 	{ exact: "src/data/skills.json" },
 	{ exact: "src/data/timeline.json" },
 	{ exact: "src/data/devices.json" },
+	{ exact: "src/data/feature-pages.json" },
 	{ prefix: "src/content/spec/" },
 	{ prefix: "public/images/" },
 ];
