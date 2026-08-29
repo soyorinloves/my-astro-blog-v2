@@ -96,5 +96,19 @@
     },
     "projects": [],
     "color": "#FF5A03"
+  },
+  {
+    "id": "1788022028351",
+    "name": "TypeScript",
+    "description": "JavaScript 的静态类型超集，提升代码可维护性。",
+    "icon": "logos:typescript-icon",
+    "category": "frontend",
+    "level": "tools",
+    "experience": {
+      "years": 0,
+      "months": 6
+    },
+    "projects": [],
+    "color": "#3178C6"
   }
 ]
