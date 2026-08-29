@@ -2,7 +2,7 @@
   {
     "id": "CSharp",
     "name": "CSharp",
-    "description": "专注于 Unity 游戏开发的 C# 编程，面向对象、协程、异步、数据结构。",
+    "description": "专注于 Unity 游戏开发的 C# 编程、面向对象、协程、异步、数据结构。",
     "icon": "logos:csharp-icon",
     "category": "game",
     "level": "intermediate",
