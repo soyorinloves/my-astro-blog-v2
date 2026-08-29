@@ -26,7 +26,7 @@
 
 ## 关于我
 
-- 主要语言：C#、Python
+- 主要语言：C#、C++、Python
 - 学习方向：Unity 游戏开发、计算机图形、TA 相关
 - 部署：GitHub + Vercel
 
