@@ -28,12 +28,21 @@ export async function uploadImage(
 		.join("");
 	const extn = file.name.split(".").pop() || "png";
 	const filename = `${hash}.${extn}`;
+	const path = `${dir}/${filename}`;
+	const url = path.replace(/^public/, "");
 
 	// 用 FileReader 转 base64（避免大文件 spread 导致的栈溢出）
 	const dataUrl = await readAsDataURL(file);
-	const base64 = dataUrl.split(",")[1];
 
-	const path = `${dir}/${filename}`;
+	// 同名文件已存在（内容相同 → hash 相同）则直接复用，避免重复上传触发 422
+	try {
+		await api.read(path);
+		return { url, dataUrl };
+	} catch {
+		// 文件不存在，继续上传
+	}
+
+	const base64 = dataUrl.split(",")[1];
 	await api.commit({
 		path,
 		content: base64,
@@ -41,5 +50,5 @@ export async function uploadImage(
 		base64: true,
 	});
 	// public/images/xxx → /images/xxx
-	return { url: path.replace(/^public/, ""), dataUrl };
+	return { url, dataUrl };
 }
