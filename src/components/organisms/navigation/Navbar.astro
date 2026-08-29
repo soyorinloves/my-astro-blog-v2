@@ -26,7 +26,7 @@ const modeSwitchDisplay =
 // 检查是否为首页
 const isHomePage = Astro.url.pathname === "/" || Astro.url.pathname === "";
 
-const links: NavBarLink[] = filterHiddenLinks(navBarConfig.links);
+const links = filterHiddenLinks(navBarConfig.links);
 
 const rawLogo = siteConfig.navbarTitle?.logo;
 const logoSrc = rawLogo?.match(/^(http|https|\/\/)/) ? rawLogo : rawLogo ? url(rawLogo) : "";
