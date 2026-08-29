@@ -82,5 +82,19 @@
     },
     "projects": [],
     "color": "#318CE7"
+  },
+  {
+    "id": "1788021971031",
+    "name": "Astro",
+    "description": "现代化静态站点生成框架，用于构建高性能博客与内容网站。",
+    "icon": "logos:astro",
+    "category": "frontend",
+    "level": "tools",
+    "experience": {
+      "years": 0,
+      "months": 6
+    },
+    "projects": [],
+    "color": "#FF5A03"
   }
 ]
