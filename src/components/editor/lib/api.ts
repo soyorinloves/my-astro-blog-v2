@@ -58,4 +58,9 @@ export const api = {
 		if (!r.ok) throw new Error(await r.text());
 		return j(r);
 	},
+	async listDir(path: string): Promise<{ name: string; path: string; type: string }[]> {
+		const r = await fetch(`/api/list-dir?path=${encodeURIComponent(path)}`);
+		if (!r.ok) throw new Error(await r.text());
+		return j(r);
+	},
 };

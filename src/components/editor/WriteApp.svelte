@@ -3,12 +3,31 @@
 	import { api } from "./lib/api";
 	import ArticleEditor from "./ArticleEditor.svelte";
 	import DiaryEditor from "./DiaryEditor.svelte";
+	import AboutEditor from "./AboutEditor.svelte";
+	import FriendsEditor from "./FriendsEditor.svelte";
+	import ProjectsEditor from "./ProjectsEditor.svelte";
+	import SkillsEditor from "./SkillsEditor.svelte";
+	import TimelineEditor from "./TimelineEditor.svelte";
+	import DevicesEditor from "./DevicesEditor.svelte";
+	import AlbumsEditor from "./AlbumsEditor.svelte";
+
+	const tabs: { key: string; label: string; component: any }[] = [
+		{ key: "article", label: "文章", component: ArticleEditor },
+		{ key: "diary", label: "日记", component: DiaryEditor },
+		{ key: "about", label: "关于", component: AboutEditor },
+		{ key: "friends", label: "友链", component: FriendsEditor },
+		{ key: "projects", label: "项目", component: ProjectsEditor },
+		{ key: "skills", label: "技能", component: SkillsEditor },
+		{ key: "timeline", label: "时间线", component: TimelineEditor },
+		{ key: "devices", label: "设备", component: DevicesEditor },
+		{ key: "albums", label: "相册", component: AlbumsEditor },
+	];
 
 	let authed = false;
 	let loading = true;
 	let password = "";
 	let error = "";
-	let tab: "article" | "diary" = "article";
+	let tab = "article";
 
 	onMount(async () => {
 		const c = await api.check();
@@ -31,6 +50,8 @@
 		await api.logout();
 		authed = false;
 	}
+
+	const activeComponent = () => tabs.find((t) => t.key === tab)?.component;
 </script>
 
 {#if loading}
@@ -50,26 +71,18 @@
 		</form>
 	</div>
 {:else}
-	<div class="flex items-center justify-between gap-2 mb-4">
-		<div class="flex gap-2">
-			<button
-				class="editor-btn {tab === 'article' ? 'editor-btn-primary' : 'editor-btn-ghost'}"
-				on:click={() => (tab = "article")}
-			>
-				文章
-			</button>
-			<button
-				class="editor-btn {tab === 'diary' ? 'editor-btn-primary' : 'editor-btn-ghost'}"
-				on:click={() => (tab = "diary")}
-			>
-				日记
-			</button>
+	<div class="flex items-start justify-between gap-2 mb-4">
+		<div class="flex gap-2 flex-wrap">
+			{#each tabs as t (t.key)}
+				<button
+					class="editor-btn {tab === t.key ? 'editor-btn-primary' : 'editor-btn-ghost'}"
+					on:click={() => (tab = t.key)}
+				>
+					{t.label}
+				</button>
+			{/each}
 		</div>
-		<button class="editor-btn editor-btn-ghost" on:click={doLogout}>退出</button>
+		<button class="editor-btn editor-btn-ghost shrink-0" on:click={doLogout}>退出</button>
 	</div>
-	{#if tab === "article"}
-		<ArticleEditor />
-	{:else}
-		<DiaryEditor />
-	{/if}
+	<svelte:component this={activeComponent()} />
 {/if}
