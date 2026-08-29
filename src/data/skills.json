@@ -72,8 +72,8 @@
   {
     "id": "aftereffects",
     "name": "Adobe After Effects",
-    "description": "熟练使用AE制作MG动画，掌握基础动效设计与视频后期处理。",
-    "icon": "logos:ftereffects-icon",
+    "description": "能够使用 AE 制作 MG 动态图形，完成基础动效设计与视频剪辑后期工作。",
+    "icon": "logos:aftereffects",
     "category": "tools",
     "level": "beginner",
     "experience": {
