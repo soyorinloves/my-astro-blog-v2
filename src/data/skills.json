@@ -131,7 +131,7 @@
     "description": "层叠样式表，负责网页布局、美化、视觉样式开发。",
     "icon": "logos:css-3",
     "category": "frontend",
-    "level": "tools",
+    "level": "beginner",
     "experience": {
       "years": 0,
       "months": 6
