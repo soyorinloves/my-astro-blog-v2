@@ -155,6 +155,27 @@
 			message = String(e);
 		}
 	}
+
+	async function deleteAlbum(albumId: string) {
+		if (!confirm(`删除相册「${albumId}」及其所有图片？此操作不可恢复。`)) return;
+		try {
+			const entries = await api.listDir(`${BASE}/${albumId}`);
+			for (const f of entries) {
+				if (f.type !== "file") continue;
+				const res = await api.read(f.path);
+				await api.remove({ path: f.path, message: `feat(albums): delete ${f.name}`, sha: res.sha });
+			}
+			message = "相册已删除 ✅";
+			if (currentAlbum === albumId) {
+				currentAlbum = null;
+				images = [];
+				reset();
+			}
+			await loadAlbums();
+		} catch (e) {
+			message = String(e);
+		}
+	}
 </script>
 
 <div class="space-y-4">
@@ -214,6 +235,7 @@
 					<p class="font-medium">{album.id}</p>
 					<div class="flex gap-2 mt-2">
 						<button class="editor-btn editor-btn-ghost" on:click={() => startEdit(album.id)}>编辑</button>
+						<button class="editor-btn editor-btn-danger" on:click={() => deleteAlbum(album.id)}>删除</button>
 					</div>
 				</div>
 			{/each}
