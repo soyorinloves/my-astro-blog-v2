@@ -62,7 +62,6 @@ Vercel → Settings → Environment Variables，添加以下 5 个变量（Produ
 
 ## 三、常见问题
 
-- **PAT 一年过期**：到期后重新生成 PAT，更新 `GH_PAT` 环境变量即可，其他不用动。
 - **本地 `pnpm dev` 写作台报错**：后端 `/api/*` 是 Vercel 专属的，本地开发时不存在，属正常；要完整联调需 `vercel dev`。
 - **保存后网站没变化**：写作台保存到 GitHub 后，要等 Vercel 重新构建（约 1 分钟）才上线。
 - **发布时日期报错**：日期必须是 `YYYY-MM-DD` 格式，写作台保存时会自动补前导零并校验。

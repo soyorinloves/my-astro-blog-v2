@@ -1,6 +1,6 @@
 # Soyonu's Blog
 
-> 一个基于 [Mizuki](https://github.com/LyraVoid/Mizuki) 魔改的个人博客，记录学习、项目与生活的碎碎念。主要方向是 Unity 游戏开发、C# 与计算机图形。
+> 一个基于 [Mizuki](https://github.com/LyraVoid/Mizuki) 魔改的个人博客，记录学习、项目与生活的碎碎念。
 
 ![Soyonu's Blog 预览图](./preview.webp)
 
@@ -48,9 +48,9 @@
 
 | 技术 | 用途 |
 | --- | --- |
-| [Astro](https://astro.build) 6 | 静态站点框架 |
-| [Svelte](https://svelte.dev) 5 | 交互组件（含写作台） |
-| [Tailwind CSS](https://tailwindcss.com) 4 | 样式 |
+| [Astro](https://astro.build) | 静态站点框架 |
+| [Svelte](https://svelte.dev)  | 交互组件（含写作台） |
+| [Tailwind CSS](https://tailwindcss.com)  | 样式 |
 | [Pagefind](https://pagefind.app/) | 全文搜索 |
 | [KaTeX](https://katex.org/) | 数学公式 |
 
